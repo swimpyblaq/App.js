@@ -30,18 +30,4 @@ jobs:
       - name: Push Docker image to Docker Hub
         run: docker push swimpyblaq92/chima:${{ env.IMAGE_TAG }}
 
-      - name: Set up Minikube
-        uses: manusa/actions-setup-minikube@v2
-        with:
-          minikube-version: 'latest'
-          kubernetes-version: 'stable'
-          driver: docker
-
-      - name: Use Minikube Docker daemon
-        run: eval $(minikube docker-env)
-
-      - name: Pull Docker image in Minikube
-        run: docker pull swimpyblaq92/chima:${{ env.IMAGE_TAG }}
-
-
-      
+    
